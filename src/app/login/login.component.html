@@ -1,0 +1,23 @@
+<div class="card form-container">
+    <div class="card-body">
+        <h3>{{ title }}</h3>
+        <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+            <div class="mb-2">
+                <label class="form-label">Username</label>
+                <input type="text" formControlName="usernames" class="form-control" placeholder="por favor ingrese su username">
+                <div *ngIf="usuarioForm.get('usernames')?.invalid && usuarioForm.get('usernames')?.touched">
+                    <small class="text-danger">Campo es obligatorio.</small>
+                </div>
+            </div>
+  
+            <div class="mb-2">
+                <label class="form-label">contraseña</label>
+                <input type="text" formControlName="contraseña" class="form-control" placeholder="por favor ingrese su contraseña">
+                <div *ngIf="usuarioForm.get('contraseña')?.invalid && usuarioForm.get('contraseña')?.touched">
+                    <small class="text-danger">Campo es obligatorio.</small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+  </div>
